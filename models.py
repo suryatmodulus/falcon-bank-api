@@ -3,7 +3,7 @@ from peewee import *
 from playhouse.db_url import connect
 
 #database = PostgresqlDatabase('Bank-API', **{'host': '127.0.0.1', 'user': 'postgres', 'password': 'thegreenarrow'})
-database = connect(os.environ.get('DATABASE') or 'postgresql://postgres:thegreenarrow@localhost:5432/Bank-API')
+database = connect(os.environ.get('DATABASE_URL') or 'postgresql://postgres:thegreenarrow@localhost:5432/Bank-API')
 
 class UnknownField(object):
     def __init__(self, *_, **__): pass
