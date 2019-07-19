@@ -9,7 +9,7 @@ A Restful API powered by Falcon, JWT Auth and Postgresql DB
 	./test.sh
   
 
-## POST ROUTES
+### POST ROUTES
 
 #### For JWT Token : 
 
@@ -19,7 +19,7 @@ Request parameters :
 | --------- | -------- | -----------
 | 	email   |    Yes   | User Email  |
 |  password |    Yes   | User Password,|
-|   raw     | Optional | when set to "true" return plain Token text, default format is JSON| 
+|   raw     | Optional | when set to "true" returns plain text, default format is JSON| 
 
 To test the API use email=modulus@helloworld.in and password=foobar (You change this in api.py)
 
@@ -27,7 +27,7 @@ Example :
 
 	echo $(curl -s -XPOST "https://falcon-bank-api.herokuapp.com/api/getToken?email={email}&password={raw}&raw=true");
 
-## GET ROUTES
+### GET ROUTES
 
 #### For Bank Details : 
 
