@@ -88,9 +88,7 @@ class GetBankDetails:
             result =  model_to_dict(Branches.select().where(Branches.ifsc == ifsc.upper()).offset(offset).limit(limit).get())
         except Exception as ex:
             self.logger.error(ex)
-            raise falcon.HTTPServiceUnavailable(
-                'Service Unavailable',
-                30)
+            raise falcon.HTTPNotFound()
 
         resp.set_header('Powered-By', 'Falcon')
         resp.status = falcon.HTTP_200
@@ -115,9 +113,7 @@ class GetBranchDetails:
             result = list(model_to_dict(branch) for branch in Branches.select().join(Banks).where(Banks.name == bank_name.upper(), Branches.city==city.upper()).offset(offset).limit(limit))
         except Exception as ex:
             self.logger.error(ex)
-            raise falcon.HTTPServiceUnavailable(
-                'Service Unavailable',
-                30)
+            raise falcon.HTTPNotFound()
 
         resp.set_header('Powered-By', 'Falcon')
         resp.status = falcon.HTTP_200

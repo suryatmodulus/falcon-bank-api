@@ -60,3 +60,4 @@ dash
 __pycache__/
 
 myenv/
+test-local.sh
