@@ -1,4 +1,3 @@
-import os
 import json
 import logging
 from wsgiref import simple_server
@@ -43,7 +42,7 @@ def _token_is_valid(token):
 class RedirectToGithub:
 
     def __init__(self):
-        self.logger = logging.getLogger('bank-api-getToken' + __name__)
+        self.logger = logging.getLogger('bank-api-redirectToGithub' + __name__)
 
     def on_get(self, req, resp):
             resp.set_header("Powered-By","Falcon")
