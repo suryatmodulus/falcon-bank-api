@@ -29,7 +29,7 @@ To test the API use email=modulus@helloworld.in and password=foobar (You change 
 
 Example : 
 
-	echo $(curl -s -XPOST "https://falcon-bank-api.herokuapp.com/api/getToken?email={email}&password={raw}&raw=true");
+	echo $(curl -s -XPOST "https://falcon-bank-api.herokuapp.com/api/getToken?email={email}&password={password}&raw=true");
 
 ### GET ROUTES
 
