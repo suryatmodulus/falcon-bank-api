@@ -40,8 +40,17 @@ def _token_is_valid(token):
     except jwt.InvalidTokenError:
         return False
 
+class RedirectToGithub:
 
-class getToken:
+    def __init__(self):
+        self.logger = logging.getLogger('bank-api-getToken' + __name__)
+
+    def on_get(self, req, resp):
+            resp.set_header("Powered-By","Falcon")
+            resp.status = falcon.HTTP_200
+            resp.body = json.dumps({'status' : 'OK', 'API-DOCS-LINK' : 'https://github.com/suryatmodulus/falcon-bank-api/blob/master/README.md'})
+
+class GetToken:
 
     def __init__(self):
         self.logger = logging.getLogger('bank-api-getToken' + __name__)
@@ -127,7 +136,9 @@ class GetBranchDetails:
 # Configure your WSGI server to load "things.app" (app is a WSGI callable)
 
 app = falcon.API()
-app.add_route('/api/getToken', getToken())
+app.add_route('/',RedirectToGithub())
+app.add_route('/api',RedirectToGithub())
+app.add_route('/api/getToken', GetToken())
 app.add_route('/api/getBankDetails', GetBankDetails())
 app.add_route('/api/getBranchDetails', GetBranchDetails())
 
