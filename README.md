@@ -3,7 +3,9 @@
 A Restful API powered by Falcon, JWT Auth and Postgresql DB
 
 
-## To Test the API :
+######BASE URL : https://falcon-bank-api.herokuapp.com
+
+### To Test the API :
 	
 	sudo chmod+x test.sh
 	./test.sh
@@ -31,7 +33,7 @@ Example :
 
 #### For Bank Details : 
 
-Request URL : https://falcon-bank-api.herokuapp.com/api/getBankDetails
+######Request URL : /api/getBankDetails
 	
 Request parameters :
 
@@ -45,13 +47,13 @@ token = JWT token from the post request
 
 Example : 
 
-   TOKEN={token} && echo $(curl -s -XGET -H "Authorization: Bearer $TOKEN" "https://falcon-bank-api.herokuapp.com/api/getBankDetails?ifsc={ifsc}&limit={limit}&offset={offset}");
+	TOKEN={token} && echo $(curl -s -XGET -H "Authorization: Bearer $TOKEN" "https://falcon-bank-api.herokuapp.com/api/getBankDetails?ifsc={ifsc}&limit={limit}&offset={offset}");
     
 
 
 #### For Branch Details : 
 
-Request URL : https://falcon-bank-api.herokuapp.com/api/getBranchDetails
+######Request URL : https://falcon-bank-api.herokuapp.com/api/getBranchDetails
 	
 Request parameters :
 
@@ -66,7 +68,7 @@ token = JWT token from the post request
 
 Example : 
 
-   TOKEN={token} && echo $(curl -s -XGET -H "Authorization: Bearer $TOKEN" "https://falcon-bank-api.herokuapp.com/api/getBranchDetails?bank_name={bank_name}&city={city}&limit={limit}&offset={offset}");
+	TOKEN={token} && echo $(curl -s -XGET -H "Authorization: Bearer $TOKEN" "https://falcon-bank-api.herokuapp.com/api/getBranchDetails?bank_name={bank_name}&city={city}&limit={limit}&offset={offset}");
     
 
 ### Data Dump :
