@@ -88,7 +88,7 @@ class GetBankDetails:
             result =  model_to_dict(Branches.select().where(Branches.ifsc == ifsc.upper()).offset(offset).limit(limit).get())
         except Exception as ex:
             self.logger.error(ex)
-            raise falcon.HTTPNotFound()
+            raise falcon.HTTPServiceUnavailable('Resource Not Found','Server was unable to fetch the requested data.')
 
         resp.set_header('Powered-By', 'Falcon')
         resp.status = falcon.HTTP_200
@@ -111,9 +111,13 @@ class GetBranchDetails:
             raise falcon.HTTPMissingParam('bank_name and city')
         try:
             result = list(model_to_dict(branch) for branch in Branches.select().join(Banks).where(Banks.name == bank_name.upper(), Branches.city==city.upper()).offset(offset).limit(limit))
+            if not result:
+            	raise falcon.HTTPServiceUnavailable('Resource Not Found','Server was unable to fetch the requested data.')
+
         except Exception as ex:
             self.logger.error(ex)
-            raise falcon.HTTPNotFound()
+            raise falcon.HTTPServiceUnavailable('Resource Not Found','Server was unable to fetch the requested data.')
+
 
         resp.set_header('Powered-By', 'Falcon')
         resp.status = falcon.HTTP_200
