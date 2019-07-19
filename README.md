@@ -3,7 +3,7 @@
 A Restful API powered by Falcon, JWT Auth and Postgresql DB
 
 
-######BASE URL : https://falcon-bank-api.herokuapp.com
+BASE URL : https://falcon-bank-api.herokuapp.com
 
 ### To Test the API :
 	
@@ -14,6 +14,8 @@ A Restful API powered by Falcon, JWT Auth and Postgresql DB
 ### POST ROUTES
 
 #### For JWT Token : 
+
+Request URL : /api/getToken
 
 Request parameters :
 
@@ -33,7 +35,7 @@ Example :
 
 #### For Bank Details : 
 
-######Request URL : /api/getBankDetails
+Request URL : /api/getBankDetails
 	
 Request parameters :
 
@@ -53,7 +55,7 @@ Example :
 
 #### For Branch Details : 
 
-######Request URL : https://falcon-bank-api.herokuapp.com/api/getBranchDetails
+Request URL : /api/getBranchDetails
 	
 Request parameters :
 
