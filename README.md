@@ -3,15 +3,15 @@
 A Restful API powered by Falcon, JWT Auth and Postgresql DB
 
 
-### To Test the API :
+## To Test the API :
 	
 	sudo chmod+x test.sh
 	./test.sh
   
 
-# POST ROUTES
+## POST ROUTES
 
-### For JWT Token : 
+#### For JWT Token : 
 
 Request parameters :
 
@@ -27,9 +27,9 @@ Example :
 
 	echo $(curl -s -XPOST "https://falcon-bank-api.herokuapp.com/api/getToken?email={email}&password={raw}&raw=true");
 
-# GET ROUTES
+## GET ROUTES
 
-### For Bank Details : 
+#### For Bank Details : 
 
 Request URL : https://falcon-bank-api.herokuapp.com/api/getBankDetails
 	
@@ -49,7 +49,7 @@ Example :
     
 
 
-### For Branch Details : 
+#### For Branch Details : 
 
 Request URL : https://falcon-bank-api.herokuapp.com/api/getBranchDetails
 	
@@ -69,6 +69,6 @@ Example :
    TOKEN={token} && echo $(curl -s -XGET -H "Authorization: Bearer $TOKEN" "https://falcon-bank-api.herokuapp.com/api/getBranchDetails?bank_name={bank_name}&city={city}&limit={limit}&offset={offset}");
     
 
-# Data Dump :
+### Data Dump :
 	
 	https://github.com/snarayanank2/indian_banks
