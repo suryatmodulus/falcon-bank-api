@@ -8,11 +8,8 @@ from playhouse.shortcuts import model_to_dict
 import jwt
 from datetime import datetime,timedelta
 
-JWT_SECRET = "COFFEE"
-
 EMAIL = "modulus@helloworld.in"
 PASS = "foobar"
-
 
 
 def jwtAuth(req,resp,resource,params):
