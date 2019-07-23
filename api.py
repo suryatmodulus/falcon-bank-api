@@ -1,3 +1,4 @@
+import os
 import json
 import logging
 from wsgiref import simple_server
@@ -32,7 +33,7 @@ def jwtAuth(req,resp,resource,params):
 
 def _token_is_valid(token):
     try:
-        payload = jwt.decode(token.split(" ")[1], JWT_SECRET, algorithms='HS256')
+        payload = jwt.decode(token.split(" ")[1],os.environ.get('JWT_SECRET'), algorithms='HS256')
         return True
     except jwt.ExpiredSignatureError:
         return False
@@ -66,7 +67,7 @@ class GetToken:
         print(email,password)
         if(email==EMAIL and password==PASS):
             payload = {'email': EMAIL, 'exp': datetime.utcnow() + timedelta(days=5)}
-            jwt_token = jwt.encode(payload, JWT_SECRET, algorithm='HS256').decode('utf-8')
+            jwt_token = jwt.encode(payload,os.environ.get('JWT_SECRET'), algorithm='HS256').decode('utf-8')
             result = {"auth": "OK", "token" : jwt_token}
             resp.set_header("Powered-By","Falcon")
             resp.status = falcon.HTTP_200
