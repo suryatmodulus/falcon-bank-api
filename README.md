@@ -7,7 +7,7 @@ BASE URL : https://falcon-bank-api.herokuapp.com
 
 ### To Test the API :
 	
-	sudo chmod+x test.sh
+	sudo chmod +x test.sh
 	./test.sh
   
 
